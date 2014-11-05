@@ -27,6 +27,4 @@ resources:
   bugtracker: https://github.com/fayland/perl-Dist-Zilla-Plugin-GitHubREADME-Badge/issues
   homepage: https://github.com/fayland/perl-Dist-Zilla-Plugin-GitHubREADME-Badge
   repository: https://github.com/fayland/perl-Dist-Zilla-Plugin-GitHubREADME-Badge.git
-version: '0.04'
-x_contributors:
-  - 'Fayland Lam <fayland@gmail.com>'
+version: '0.05'
