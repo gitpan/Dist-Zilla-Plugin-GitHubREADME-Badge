@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-Plugin-GitHubREADME-Badge
 
+0.06  2014-11-05 10:00:08 CST
+        - for a 'Failed: PAUSE indexer report'
+
 0.05  2014-11-05 09:42:24 CST
         - under wrong PAUSE account
 
