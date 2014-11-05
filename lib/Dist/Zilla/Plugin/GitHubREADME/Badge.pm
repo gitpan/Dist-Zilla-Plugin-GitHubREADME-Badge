@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::GitHubREADME::Badge;
 
 use strict;
 use 5.008_005;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Moose;
 use namespace::autoclean;
@@ -30,7 +30,11 @@ sub after_build {
     my ($user_name, $repository_name) = ($repository =~ m{github.com/([^\/]+)/(.*?)(\.git|\/|$)});
     return unless $repository_name;
 
-    my $file = $self->zilla->root->file('README.md');
+    my $file;
+    foreach my $filename ('README.md', 'README.mkdn', 'README.markdown') {
+        $file = $self->zilla->root->file($filename);
+        last if -e "$file";
+    }
     my $readme = Dist::Zilla::File::OnDisk->new(name => "$file");
 
     my $content = $readme->content;
@@ -51,7 +55,6 @@ sub after_build {
     } else {
         $content = join("\n", @badges) . "\n\n" . $content;
     }
-
 
     Path::Tiny::path($file)->spew_raw($content);
 }
@@ -117,7 +120,5 @@ Copyright 2014- Fayland Lam
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 SEE ALSO
 
 =cut
